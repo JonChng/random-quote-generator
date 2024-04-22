@@ -25,12 +25,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className ="text-3l font-bold underline">Random Quote Machine</h1>
-      <div id="quote-box">
+      <h1 className="text-3l font-bold underline">Random Quote Machine</h1>
+      <div id="quote-box" className='flex-auto place-content-center bg-white w-1/2 h-auto p-10 m-auto rounded-lg'>
         <p id="text">{quoteInfo.text}</p>
-        <p id="author">{quoteInfo.author}</p>
-        <button id="new-quote" onClick={getQuote}>New Quote</button>
-        <a id="tweet-quote" href={'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + quoteInfo.text}>Tweet Quote</a>
+        <p id="author" className="mb-15">{quoteInfo.author}</p>
+
+        <div className="pt-10 ">
+          <button id="new-quote" onClick={getQuote} className="p-1 bg-slate-500 rounded-xl content-center w-1/2 mb-5">
+            New Quote
+          </button>
+          <br />
+          <a className="flex justify-center items-center" id="tweet-quote" href={'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + quoteInfo.text}>
+            <img className="size-5 "src="/logo-black.png" alt="twitter" />
+          </a>
+        </div>
+        
       </div>
     </div>
   );
