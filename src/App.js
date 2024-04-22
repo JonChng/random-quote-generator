@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Random Quote Machine</h1>
+      <h1 className ="text-3l font-bold underline">Random Quote Machine</h1>
       <div id="quote-box">
         <p id="text">{quoteInfo.text}</p>
         <p id="author">{quoteInfo.author}</p>
