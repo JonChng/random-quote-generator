@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const endpoint = "https://api.quotable.io/random"
+
+  const [quoteInfo, setQuoteInfo] = useState({})
+
+  const getQuote = () => {
+    fetch(endpoint)
+      .then((response) => {
+        return response.json();
+      }).then((data) => {
+        setQuoteInfo({
+          text: data.content,
+          author: data.author
+        });
+      });
+  }
+
+  // Get Quote
+  useEffect(() => {
+    getQuote();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Random Quote Machine</h1>
+      <div id="quote-box">
+        <p id="text">{quoteInfo.text}</p>
+        <p id="author">{quoteInfo.author}</p>
+        <button id="new-quote" onClick={getQuote}>New Quote</button>
+        <a id="tweet-quote" href={'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + quoteInfo.text}>Tweet Quote</a>
+      </div>
     </div>
   );
 }
