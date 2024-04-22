@@ -24,9 +24,9 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <h1 className="text-3l font-bold underline">Random Quote Machine</h1>
-      <div id="quote-box" className='flex-auto place-content-center bg-white w-1/2 h-auto p-10 m-auto rounded-lg'>
+    <div className="App flex-auto place-content-center w-1/2 h-auto p-10 m-auto">
+      <h1 className="text-3xl font-bold underline center pb-10">Random Quote Machine</h1>
+      <div id="quote-box" className='flex-auto place-content-center bg-white w-full h-auto p-10 m-auto rounded-lg'>
         <p id="text">{quoteInfo.text}</p>
         <p id="author" className="mb-15">{quoteInfo.author}</p>
 
